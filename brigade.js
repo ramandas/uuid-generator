@@ -1,9 +1,13 @@
 const { events, Job, Group } = require('brigadier')
 
 // registering checks
+const project = {
+  name: "unit"
+}
 
 events.on("push", (e, project) => {
   console.log("Starting brigade")
+  console.log(project.name)
 
   // creating a unit test application job
   var unitTest = new Job("unit-test", "python:3")
@@ -28,14 +32,14 @@ events.on("push", (e, project) => {
     "dockerd-entrypoint.sh &",
     "sleep 20",
     "cd /src/",
-    "docker build -t tettaji/brigade-test:latest .",
+    "docker build -t ramandas/brigade-test:latest .",
     "docker login -u $DOCKER_USER -p $DOCKER_PASS",
-    "docker push tettaji/brigade-test:latest"
+    "docker push ramandas/brigade-test:latest"
   ]
 
   const pipeline = new Group()
   pipeline.add(unitTest)
-  pipeline.add(dockerBuild)
+  //pipeline.add(dockerBuild)
   pipeline.runAll()
 
 })
