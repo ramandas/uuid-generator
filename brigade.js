@@ -6,7 +6,7 @@ events.on("push", (e, project) => {
   console.log("Starting brigade")
 
   // creating a unit test application job
-  var unitTest = new Job("UNIT Test", "python:3")
+  var unitTest = new Job("unit-test", "python:3")
   unitTest.tasks = [
     "cd /src/",
     "pip install -r requirements.txt",
