@@ -1,4 +1,4 @@
-const { events, job, Group } = require('brigadier')
+const { events, Job, Group } = require('brigadier')
 
 // registering checks
 
@@ -6,14 +6,14 @@ events.on("push", (e, project) => {
   console.log("Starting brigade")
 
   // creating a unit test application job
-  var unitTest = new job("UNIT Test", "python:3")
+  var unitTest = new Job("UNIT Test", "python:3")
   unitTest.tasks = [
     "cd /src/",
     "pip install -r requirements.txt",
     "cd /src/",
     "python setup.py test"
   ]
-  const dockerBuild = new job("dockerbuild")
+  const dockerBuild = new Job("dockerbuild")
   dockerBuild.image = "docker:dind"
   dockerBuild.privileged = true;
 
