@@ -20,6 +20,7 @@ werkzeug_logger.setLevel(logging.ERROR)
 
 @app.after_request
 def log_after(response):
+    # new comment is added
     # check if the request was made from a kubernetes liveness/readiness probe
     if RUNNING_IN_KUBERNETES:
         if request.headers.get('User-Agent') == 'Go-http-client/1.1':
