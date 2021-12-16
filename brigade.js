@@ -2,11 +2,12 @@ const {events, Job, Group} = require("brigadier");
 const checkRunImage = "brigadecore/brigade-github-check-run:latest"
 
 events.on("check_suite:requested", checkRequested)
-//events.on("check_suite:rerequested", checkRequested)
+events.on("check_suite:rerequested", checkRequested)
 events.on("check_run:rerequested", checkRequested)
 
 function checkRequested(e, p) {
   console.log("check requested")
+  console.log("register checks")
   // Common configuration
   const env = {
     CHECK_PAYLOAD: e.payload,
