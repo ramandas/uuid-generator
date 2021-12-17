@@ -6,7 +6,7 @@ events.on("check_suite:rerequested", checkRequested)
 events.on("check_run:rerequested", checkRequested)
 
 function checkRequested(e, p) {
-  console.log("check raman isqq123 requested")
+  console.log("new checks introduced")
   console.log("register checks from new branch")
   // Common configuration
   const env = {
