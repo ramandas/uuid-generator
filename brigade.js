@@ -6,7 +6,7 @@ events.on("check_suite:rerequested", checkRequested)
 events.on("check_run:rerequested", checkRequested)
 
 function checkRequested(e, p) {
-  console.log("check requested")
+  console.log("check requested from new branch")
   // Common configuration
   const env = {
     CHECK_PAYLOAD: e.payload,
