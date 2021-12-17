@@ -11,7 +11,7 @@ function checkRequested(e, p) {
   // Common configuration
   const env = {
     CHECK_PAYLOAD: e.payload,
-    CHECK_NAME: "MyService",
+    CHECK_NAME: "CheckService",
     CHECK_TITLE: "Echo Test",
   }
 
